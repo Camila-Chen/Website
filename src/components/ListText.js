@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Collapse from '@material-ui/core/Collapse';
 import StarBorder from '@material-ui/icons/StarBorder';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -15,22 +14,28 @@ const styles = (theme) => ({
     },
 });
 
+
 class Fold extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+
+        };
+    }
+
     render() {
         const { classes } = this.props;
-
         return (
             <div>
-                <Collapse in={this.props.open} timeout="auto" unmountOnExit >
-                    <List component="div" disablePadding>
-                        <ListItem button className={classes.nested}>
-                            <ListItemIcon>
-                                <StarBorder />
-                            </ListItemIcon>
-                            <ListItemText primary="Starred" />
-                        </ListItem>
-                    </List>
-                </Collapse>
+                <List component="div" disablePadding>
+                    <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                            <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText primary={this.props.item.name} />
+                    </ListItem>
+                </List>
             </div>
         );
     }

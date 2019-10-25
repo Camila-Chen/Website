@@ -1,0 +1,7 @@
+.scroll-bar {
+    overflow: auto;
+    width: 313px;
+    max-height: 100vh;
+    position: fixed;
+    left: 0
+}
