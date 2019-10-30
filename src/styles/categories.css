@@ -3,5 +3,6 @@
     width: 313px;
     max-height: 100vh;
     position: fixed;
-    left: 0
+    left: 0;
+    top: 50px
 }

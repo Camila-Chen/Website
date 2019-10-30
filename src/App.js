@@ -5,14 +5,38 @@ import PictureList from './components/PictureList';
 import './styles/App.css'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: true,
+    };
+  }
+
+  handleDrawerOpen = () => {
+    this.setState({
+      open: true
+    })
+  }
+
+  handleDrawerClose = () => {
+    this.setState({
+      open: false
+    })
+  }
+
 
   render() {
     return (
       <div>
         <Navigation />
         <div>
-          <Categories />
-          <PictureList />
+          <Categories
+            handleDrawerOpen={this.handleDrawerOpen}
+            handleDrawerClose={this.handleDrawerClose}
+            open={this.state.open} />
+          <PictureList
+            open={this.state.open} />
         </div>
       </div>
     );

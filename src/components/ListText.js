@@ -33,7 +33,7 @@ class Fold extends Component {
                         <ListItemIcon>
                             <StarBorder />
                         </ListItemIcon>
-                        <ListItemText primary={this.props.item.name} />
+                        <ListItemText primary={this.props.item} />
                     </ListItem>
                 </List>
             </div>

@@ -1,0 +1,10 @@
+.rightNavigation {
+    margin-right: 3%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.languageicon {
+    margin: auto;
+    padding-right: 12%;
+}
