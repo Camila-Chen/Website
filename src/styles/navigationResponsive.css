@@ -1,0 +1,20 @@
+.menu-list {
+    width: 400px;
+    height: 100vh;
+}
+
+.sign {
+    padding-left: 1%;
+}
+
+.language-contain {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px
+}
+
+.language {
+    display: flex;
+    margin-left: 16px;
+
+}

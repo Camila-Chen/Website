@@ -18,7 +18,7 @@ const styles = (theme) => ({
     flexGrow: 1,
     position: 'fixed',
     zIndex: 999,
-    width: '100vw',
+    width: '100%',
     display: 'flex',
     justifyContent: 'space-between'
   },
