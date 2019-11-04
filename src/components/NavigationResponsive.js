@@ -13,6 +13,8 @@ import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import Divider from '@material-ui/core/Divider';
 import LanguageIcon from '@material-ui/icons/Language';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import CloseIcon from '@material-ui/icons/Close';
+
 
 const styles = (theme) => ({
     root: {
@@ -94,11 +96,12 @@ class NavigationResponsive extends Component {
                                     onClose={this.handleClose}
                                 >
                                     <div className="menu-list">
+                                        <CloseIcon onClick={this.handleClose} />
                                         <MenuItem >
                                             <PersonOutlineIcon />
                                             <span className="sign">Sign Up</span>
                                         </MenuItem>
-                                        <Divider variant="middle" />
+                                        <Divider />
 
                                         <MenuItem >
                                             <p>首页</p>
@@ -113,7 +116,7 @@ class NavigationResponsive extends Component {
                                         <MenuItem >
                                             <p>Wix行动装置应用程式</p>
                                         </MenuItem>
-                                        <Divider variant="middle" />
+                                        <Divider />
                                         <MenuItem >
                                             <p>支援</p>
                                         </MenuItem>
@@ -121,7 +124,7 @@ class NavigationResponsive extends Component {
                                         <MenuItem >
                                             <p>Wix部落格</p>
                                         </MenuItem>
-                                        <Divider variant="middle" />
+                                        <Divider />
                                         <div className="language-contain">
                                             <div className="language">
                                                 <p><LanguageIcon /></p>

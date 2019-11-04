@@ -32,14 +32,14 @@ class App extends Component {
       <div>
         <NavigationResponsive />
         {/* <Navigation /> */}
-        {/* <div>
-          <Categories
+        <div>
+          {/* <Categories
             handleDrawerOpen={this.handleDrawerOpen}
             handleDrawerClose={this.handleDrawerClose}
-            open={this.state.open} />
-          <PictureList
-            open={this.state.open} />
-        </div> */}
+            open={this.state.open} /> */}
+          {/* <PictureList
+            open={this.state.open} /> */}
+        </div>
       </div>
     );
   }

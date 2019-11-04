@@ -68,7 +68,6 @@ class PictureList extends Component {
         const { classes } = this.props;
         return (
             <div>
-
                 <div className={classes.root}  >
                     <main
                         className={clsx(classes.content, {
@@ -84,8 +83,8 @@ class PictureList extends Component {
                                 );
                             })}
                         </GridList>
-                    </main>
 
+                    </main>
                 </div>
 
             </div >
