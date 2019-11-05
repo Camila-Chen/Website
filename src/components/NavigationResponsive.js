@@ -26,7 +26,9 @@ const styles = (theme) => ({
     title: {
         flexGrow: 1
     },
-
+    barheight: {
+        minHeight: 52
+    }
 });
 
 class NavigationResponsive extends Component {
@@ -55,8 +57,9 @@ class NavigationResponsive extends Component {
         console.log(this.props)
         return (
             <div className={classes.root}>
-                <AppBar position="static">
-                    <Toolbar>
+                <AppBar position="static" color="inherit">
+                    <Toolbar
+                        classes={{ regular: classes.barheight }}>
                         <IconButton
                             edge="start"
                             className={classes.menuButton}
@@ -67,7 +70,7 @@ class NavigationResponsive extends Component {
 
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
-                            Photos
+                            WIX
           </Typography>
                         {this.state.auth && (
                             <div>
@@ -84,53 +87,57 @@ class NavigationResponsive extends Component {
                                     id="menu-appbar"
                                     anchorEl={this.state.anchorEl}
                                     anchorOrigin={{
-                                        vertical: 'top',
+                                        vertical: 'bottom',
                                         horizontal: 'center',
                                     }}
                                     keepMounted
                                     transformOrigin={{
-                                        vertical: 'top',
+                                        vertical: 'bottom',
                                         horizontal: 'center',
                                     }}
                                     open={open}
                                     onClose={this.handleClose}
                                 >
                                     <div className="menu-list">
-                                        <CloseIcon onClick={this.handleClose} />
-                                        <MenuItem >
-                                            <PersonOutlineIcon />
-                                            <span className="sign">Sign Up</span>
-                                        </MenuItem>
-                                        <Divider />
+                                        <div className="close">
+                                            <CloseIcon onClick={this.handleClose} />
+                                        </div>
+                                        <div className="list">
+                                            <MenuItem >
+                                                <PersonOutlineIcon />
+                                                <span className="sign">Sign Up</span>
+                                            </MenuItem>
+                                            <Divider />
 
-                                        <MenuItem >
-                                            <p>首页</p>
-                                        </MenuItem>
+                                            <MenuItem >
+                                                <p>首页</p>
+                                            </MenuItem>
 
-                                        <MenuItem >
-                                            <p>功能</p>
-                                        </MenuItem>
-                                        <MenuItem >
-                                            <p>探索</p>
-                                        </MenuItem>
-                                        <MenuItem >
-                                            <p>Wix行动装置应用程式</p>
-                                        </MenuItem>
-                                        <Divider />
-                                        <MenuItem >
-                                            <p>支援</p>
-                                        </MenuItem>
-                                        <Divider variant="middle" />
-                                        <MenuItem >
-                                            <p>Wix部落格</p>
-                                        </MenuItem>
-                                        <Divider />
-                                        <div className="language-contain">
-                                            <div className="language">
-                                                <p><LanguageIcon /></p>
-                                                <p >简体中文</p>
+                                            <MenuItem >
+                                                <p>功能</p>
+                                            </MenuItem>
+                                            <MenuItem >
+                                                <p>探索</p>
+                                            </MenuItem>
+                                            <MenuItem >
+                                                <p>Wix行动装置应用程式</p>
+                                            </MenuItem>
+                                            <Divider />
+                                            <MenuItem >
+                                                <p>支援</p>
+                                            </MenuItem>
+                                            <Divider variant="middle" />
+                                            <MenuItem >
+                                                <p>Wix部落格</p>
+                                            </MenuItem>
+                                            <Divider />
+                                            <div className="language-contain">
+                                                <div className="language">
+                                                    <p><LanguageIcon /></p>
+                                                    <p >简体中文</p>
+                                                </div>
+                                                <p><NavigateNextIcon /></p>
                                             </div>
-                                            <p><NavigateNextIcon /></p>
                                         </div>
                                     </div>
                                 </Menu>

@@ -1,44 +1,30 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
 import { getImages } from '../actions/image.action';
-import clsx from "clsx";
-
-
-const drawerWidth = 300;
+import "../styles/pictureList.css";
+import clsx from 'clsx'
 
 
 const styles = (theme => ({
     root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper,
-        width: '70vw',
-        position: 'absolute',
-        right: '6vw',
-        top: '100px',
-        paddingBottom: 30,
-    },
-    gridList: {
-        overflow: 'hidden',
+
     },
     content: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginLeft: -drawerWidth,
+
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'flex-end',
+        paddingTop: '5%',
     },
-    contentShift: {
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-        marginLeft: 0,
+
+    imgposition: {
+        margin: '36px',
+
     },
+    size: {
+        flexGrow: 1
+    }
+
 }));
 
 class PictureList extends Component {
@@ -61,33 +47,22 @@ class PictureList extends Component {
                 console.log(error)
             });
     }
-
-
     render() {
-        console.log(this.props)
-        const { classes } = this.props;
+        const { classes } = this.props
+        console.log(this.props.open)
         return (
-            <div>
-                <div className={classes.root}  >
-                    <main
-                        className={clsx(classes.content, {
-                            [classes.contentShift]: this.props.open,
+            <main
+                className={classes.content}
+            >
+                {this.state.pictures.map((item, index) => {
+                    return (
+                        <img className={clsx(classes.imgposition, {
+                            [classes.size]: !this.props.open
                         })}
-                    >
-                        <GridList cellHeight={260} className={classes.gridList} cols={3} spacing={36} >
-                            {this.state.pictures.map((item, index) => {
-                                return (
-                                    <GridListTile key={index} item={item}  >
-                                        <img src={item.img} alt='正在加载' />
-                                    </GridListTile>
-                                );
-                            })}
-                        </GridList>
-
-                    </main>
-                </div>
-
-            </div >
+                            src={item.img} alt='正在加载' />
+                    );
+                })}
+            </main>
         );
     }
 }

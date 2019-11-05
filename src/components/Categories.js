@@ -6,35 +6,26 @@ import ListTitle from './ListTitle';
 import '../styles/categories.css'
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import IconButton from "@material-ui/core/IconButton";
-import clsx from "clsx";
 import Drawer from "@material-ui/core/Drawer";
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
-const drawerWidth = 240;
+
+const drawerWidth = 313;
 
 const styles = (theme) => ({
   root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
   },
   drawer: {
-    width: drawerWidth,
-    flexShrink: 0
+    witdh: drawerWidth
   },
-
+  back: {
+    display: 'flex',
+    justifyContent: "flex-end"
+  },
   drawerPaper: {
     width: drawerWidth,
-  },
-  content: {
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    marginLeft: 0,
+    marginTop: 52
   },
 });
 
@@ -75,60 +66,48 @@ class Categories extends Component {
     const { classes } = this.props;
     return (
       <div className="scroll-bar">
-        <main
-          className={clsx(classes.content, {
-            [classes.contentShift]: this.props.open,
-          })}
+        <IconButton
+          onClick={this.handleDrawerOpen}
+
         >
-          <div className="open-drawer">
-            <IconButton
-              color="primary"
-              aria-label="open drawer"
-              onClick={this.handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, this.props.open && classes.hide)}
-            >
-              <ArrowForwardIosIcon
-                color="primary" />
-            </IconButton>
-          </div>
-          <Drawer
-            className={classes.drawer}
-            variant="persistent"
-            anchor="left"
-            open={this.props.open}
-            classes={{
-              paper: classes.drawerPaper
-            }}
+          <ArrowForwardIosIcon />
+
+        </IconButton>
+
+        <Drawer
+          className={classes.drawer}
+          open={this.props.open}
+          variant="persistent"
+          anchor="left"
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <IconButton onClick={this.handleDrawerClose}
+            className={classes.back}>
+            <ArrowBackIosIcon />
+
+          </IconButton>
+          <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            subheader={
+              <ListSubheader component="div" id="nested-list-subheader">
+                类别
+            </ListSubheader>
+            }
           >
 
-            <List
-              component="nav"
-              aria-labelledby="nested-list-subheader"
-              subheader={
-                <ListSubheader component="div" id="nested-list-subheader">
-                  类别
-            </ListSubheader>
-              }
-            // className={classes.root}
-            >
-              <IconButton onClick={this.handleDrawerClose}>
-                <ArrowBackIosIcon />
-
-              </IconButton>
-
-              {this.state.categories.map((item, index) => {
-                return (
-                  <ListTitle
-                    item={item}
-                    key={index}
-                  />
-                );
-              })}
-
-            </List>
-          </Drawer>
-        </main>
+            {this.state.categories.map((item, index) => {
+              return (
+                <ListTitle
+                  item={item}
+                  key={index}
+                />
+              );
+            })}
+          </List>
+        </Drawer>
       </div >
     );
   }

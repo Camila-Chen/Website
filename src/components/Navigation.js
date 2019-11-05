@@ -20,7 +20,8 @@ const styles = (theme) => ({
     zIndex: 999,
     width: '100%',
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+
   },
 });
 
@@ -44,35 +45,33 @@ class Navigation extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
-        <Paper className={classes.root}>
-          <Tabs
-            value={this.state.value}
-            onChange={this.handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-          >
-            <Tab label="功能" />
-            <Tab label="探索" />
-            <Tab label="订阅" />
-            <Tab label="范本" />
-            <Tab label="支援" />
+      <Paper className={classes.root}>
+        <Tabs
+          value={this.state.value}
+          onChange={this.handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+        >
+          <Tab label="功能" />
+          <Tab label="探索" />
+          <Tab label="订阅" />
+          <Tab label="范本" />
+          <Tab label="支援" />
 
-          </Tabs>
-          <div className="rightNavigation">
-            <div className="languageicon">
-              <LanguageIcon
-                color="primary"
-                fontSize="medium" />
-            </div>
-            <Button variant="outlined" color="primary" className={classes.button}>
-              登入
+        </Tabs>
+        <div className="rightNavigation">
+          <div className="languageicon">
+            <LanguageIcon
+              color="primary"
+              fontSize="medium" />
+          </div>
+          <Button variant="outlined" color="primary" className={classes.button}>
+            登入
           </Button>
 
-          </div>
-        </Paper>
+        </div>
+      </Paper>
 
-      </div>
     );
   }
 }
