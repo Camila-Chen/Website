@@ -3,8 +3,10 @@ import Categories from './components/Categories';
 import Navigation from './components/Navigation';
 import PictureList from './components/PictureList';
 import NavigationResponsive from './components/NavigationResponsive';
+import CategoriesResponsive from './components/CategoriesResponsive';
 import './styles/App.css';
 import Hidden from '@material-ui/core/Hidden';
+
 
 class App extends Component {
   constructor(props) {
@@ -38,13 +40,20 @@ class App extends Component {
           <Navigation />
         </Hidden>
         <div classsName="contain">
-          <Categories
-            handleDrawerOpen={this.handleDrawerOpen}
-            handleDrawerClose={this.handleDrawerClose}
-            open={this.state.open} />
+          <Hidden smDown>
+            <Categories
+              handleDrawerOpen={this.handleDrawerOpen}
+              handleDrawerClose={this.handleDrawerClose}
+              open={this.state.open} />
+          </Hidden>
+          <Hidden mdUp>
+            <CategoriesResponsive />
+          </Hidden>
           <PictureList
             open={this.state.open} />
         </div>
+
+
       </div>
     );
   }
