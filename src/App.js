@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import Categories from './components/Categories';
-import Navigation from './components/Navigation';
-import PictureList from './components/PictureList';
-import NavigationResponsive from './components/NavigationResponsive';
-import CategoriesResponsive from './components/CategoriesResponsive';
+// import Categories from './components/Categories';
+// import Navigation from './components/Navigation';
+// import PictureList from './components/PictureList';
+// import NavigationResponsive from './components/NavigationResponsive';
+// import CategoriesResponsive from './components/CategoriesResponsive';
 import './styles/App.css';
-import Hidden from '@material-ui/core/Hidden';
+// import Hidden from '@material-ui/core/Hidden';
+import PictureListResponsive from './components/PictureListResponsive'
 
 
 class App extends Component {
@@ -33,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Hidden mdUp>
+        {/* <Hidden mdUp>
           <NavigationResponsive />
         </Hidden>
         <Hidden smDown>
@@ -50,11 +51,12 @@ class App extends Component {
             <CategoriesResponsive />
           </Hidden>
           <PictureList
-            open={this.state.open} />
-        </div>
+            open={this.state.open} /> */}
+        <PictureListResponsive />
+        {/* </div> */}
 
 
-      </div>
+      </div >
     );
   }
 }
