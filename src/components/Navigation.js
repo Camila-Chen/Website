@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core';
 import LanguageIcon from '@material-ui/icons/Language';
-import '../styles/navigation.css'
 
 const styles = (theme) => ({
   button: {
@@ -23,6 +22,15 @@ const styles = (theme) => ({
     justifyContent: 'space-between',
 
   },
+  rightNavigation: {
+    marginRight: '3%',
+    display: 'flex',
+    justifyContent: 'space-around'
+  },
+  languageicon: {
+    margin: 'auto',
+    paddingRight: '12%'
+  }
 });
 
 class Navigation extends Component {
@@ -59,8 +67,8 @@ class Navigation extends Component {
           <Tab label="支援" />
 
         </Tabs>
-        <div className="rightNavigation">
-          <div className="languageicon">
+        <div className={classes.rightNavigation}>
+          <div className={classes.languageicon}>
             <LanguageIcon
               color="primary"
               fontSize="medium" />

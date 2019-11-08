@@ -4,14 +4,17 @@ import { getImages } from "../actions/image.action";
 import clsx from "clsx";
 
 const styles = theme => ({
-  root: {},
+
   content: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "flex-end",
-    paddingTop: "5%"
+    justifyContent: "center",
+    paddingTop: "5%",
+    marginLeft: '313px'
   },
-
+  contentShift: {
+    marginLeft: '0'
+  },
   imgposition: {
     margin: "36px"
   },
@@ -36,15 +39,14 @@ class PictureList extends Component {
           pictures: response
         });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
   render() {
     const { classes } = this.props;
-    console.log(this.props.open);
     return (
-      <main className={classes.content}>
+      <main className={clsx(classes.content, { [classes.contentShift]: !this.props.open })}>
         {this.state.pictures.map((item, index) => {
           return (
             <img
@@ -53,6 +55,7 @@ class PictureList extends Component {
               })}
               src={item.img}
               alt="正在加载"
+              key={index}
             />
           );
         })}

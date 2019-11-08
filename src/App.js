@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-// import Categories from "./components/Categories";
-// import Navigation from "./components/Navigation";
-// import PictureList from "./components/PictureList";
+import Categories from "./components/Categories";
+import Navigation from "./components/Navigation";
+import PictureList from "./components/PictureList";
 import NavigationResponsive from "./components/NavigationResponsive";
-// import CategoriesResponsive from "./components/CategoriesResponsive";
-import "./styles/App.css";
+import CategoriesResponsive from "./components/CategoriesResponsive";
 import Hidden from "@material-ui/core/Hidden";
-// import PictureListResponsive from "./components/PictureListResponsive";
+import PictureListResponsive from "./components/PictureListResponsive";
+
+
+
 
 class App extends Component {
   constructor(props) {
@@ -30,15 +32,16 @@ class App extends Component {
   };
 
   render() {
+
     return (
       <div>
         <Hidden mdUp>
           <NavigationResponsive />
         </Hidden>
-        {/* <Hidden smDown>
+        <Hidden smDown>
           <Navigation />
         </Hidden>
-        <div classsName="contain">
+        <div >
           <Hidden smDown>
             <Categories
               handleDrawerOpen={this.handleDrawerOpen}
@@ -49,10 +52,15 @@ class App extends Component {
           <Hidden mdUp>
             <CategoriesResponsive />
           </Hidden>
-          <PictureList open={this.state.open} /> */}
-        {/* <PictureListResponsive /> */}
+          <Hidden smDown>
+            <PictureList open={this.state.open} />
+          </Hidden >
+
+          <Hidden mdUp>
+            <PictureListResponsive />
+          </Hidden >
+        </div>
       </div>
-      // </div>
     );
   }
 }

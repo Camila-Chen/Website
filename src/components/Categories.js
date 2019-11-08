@@ -3,7 +3,6 @@ import List from '@material-ui/core/List';
 import { getCategories } from '../actions/category.action';
 import React, { Component } from 'react';
 import ListTitle from './ListTitle';
-import '../styles/categories.css'
 import ListSubheader from '@material-ui/core/ListSubheader';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import IconButton from "@material-ui/core/IconButton";
@@ -15,13 +14,21 @@ const drawerWidth = 313;
 
 const styles = (theme) => ({
   root: {
+    overflow: 'auto',
+    maxHeight: '100vh',
+    position: 'fixed',
+    left: 0,
+    top: '52px'
   },
   drawer: {
     witdh: drawerWidth
   },
-  back: {
+
+  drawerHeader: {
     display: 'flex',
-    justifyContent: "flex-end"
+    alignItems: 'center',
+    padding: theme.spacing(0, 1),
+    justifyContent: 'flex-end',
   },
   drawerPaper: {
     width: drawerWidth,
@@ -65,7 +72,7 @@ class Categories extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className="scroll-bar">
+      <div className={classes.root}>
         <IconButton
           onClick={this.handleDrawerOpen}
 
@@ -83,11 +90,13 @@ class Categories extends Component {
             paper: classes.drawerPaper
           }}
         >
-          <IconButton onClick={this.handleDrawerClose}
-            className={classes.back}>
-            <ArrowBackIosIcon />
+          <div className={classes.drawerHeader}>
+            <IconButton onClick={this.handleDrawerClose}
+            >
+              <ArrowBackIosIcon />
 
-          </IconButton>
+            </IconButton>
+          </div>
           <List
             component="nav"
             aria-labelledby="nested-list-subheader"
